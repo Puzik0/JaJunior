@@ -14,7 +14,7 @@ namespace JaJunior
             int weightWoman = 0;
             float haightMan = 0f;
             float haightWoman = 0f;
-            string greeting = "Привет! Пожалуйста, укажите ваш вест и рост, а также вес и рост вашего партнёра"; // роверка гита
+            string greeting = "Привет! Пожалуйста, укажите ваш вест и рост, а также вес и рост вашего партнёра";
             bool isCompatible = true;
 
             Console.WriteLine(greeting);
