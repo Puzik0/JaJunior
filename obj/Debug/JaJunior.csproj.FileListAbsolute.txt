@@ -1,0 +1,8 @@
+D:\c# projects\JaJunior\bin\Debug\JaJunior.exe.config
+D:\c# projects\JaJunior\bin\Debug\JaJunior.exe
+D:\c# projects\JaJunior\bin\Debug\JaJunior.pdb
+D:\c# projects\JaJunior\obj\Debug\JaJunior.csproj.AssemblyReference.cache
+D:\c# projects\JaJunior\obj\Debug\JaJunior.csproj.SuggestedBindingRedirects.cache
+D:\c# projects\JaJunior\obj\Debug\JaJunior.csproj.CoreCompileInputs.cache
+D:\c# projects\JaJunior\obj\Debug\JaJunior.exe
+D:\c# projects\JaJunior\obj\Debug\JaJunior.pdb
