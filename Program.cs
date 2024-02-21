@@ -19,8 +19,9 @@ namespace JaJunior
             int skinny = 19;
             int normal = 25;
             int fatty = 30;
-            double manStats = weightMan / (haightMan / 100 * 2);
-            double womanStats = weightWoman / (haightWoman / 100 * 2);
+            int percent = 100;
+            double manStats = weightMan / (haightMan / percent );
+            double womanStats = weightWoman / (haightWoman / percent );
             int statusMan;
             int statusWoman;
             bool compatiblityChech = true;
