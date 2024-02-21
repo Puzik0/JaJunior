@@ -24,7 +24,7 @@ namespace JaJunior
             double womanStats = weightWoman / (haightWoman / percent );
             int statusMan;
             int statusWoman;
-            bool compatiblityChech = true;
+            bool isTrust = true;
             char manLetter = 'М';
             char womanLetter = 'Ж';
 
