@@ -33,12 +33,6 @@ namespace DiamonStore
                 $"А алмазов у вас в кармане теперь: {diamondsToPay}");
             Console.ReadKey();
 
-
-
-
-
-
-
         }
     }
 }
