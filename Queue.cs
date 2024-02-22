@@ -25,7 +25,7 @@ namespace QueueTimeTreker
             hours = allMinutes / minutesInHour;
             minutes = allMinutes % minutesInHour;
 
-            Console.WriteLine($"Вам тут еще тарчать {hours} часов и {minutes} минут");
+            Console.WriteLine($"Вам тут еще тарчать {hours} ч. и {minutes} мин.");
             Console.ReadKey(); 
 
         }
