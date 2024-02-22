@@ -10,7 +10,6 @@ namespace QueueTimeTreker
     {
         static void Main(string[] args)
         {
-
           int pictures = 52;
           int rowCapacity = 3;
           
