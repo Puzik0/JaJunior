@@ -11,23 +11,19 @@ namespace QueueTimeTreker
         static void Main(string[] args)
         {
             int timeForOnePerson = 10;
-            int PersonInFront;
+            int personInFront;
             int allMinutes;
             int minutesInHour = 60;
-
-            int hours;
-            int minutes;
-
-            Console.WriteLine("Сколько сейчас человек перд Вами?");
-            PersonInFront = Convert.ToInt32(Console.ReadLine());
-
-            allMinutes = PersonInFront * timeForOnePerson;
-            hours = allMinutes / minutesInHour;
-            minutes = allMinutes % minutesInHour;
-
-            Console.WriteLine($"Вам тут еще тарчать {hours} ч. и {minutes} мин.");
+            int hoursToWait;
+            int minutesToWait;
+            
+            Console.WriteLine("Сколько сейчас человек перед Вами?");
+            personInFront = Convert.ToInt32(Console.ReadLine());
+            allMinutes = personInFront * timeForOnePerson;
+            hoursToWait = allMinutes / minutesInHour;
+            minutesToWait = allMinutes % minutesInHour;
+            Console.WriteLine($"Вам тут еще тарчать {hoursToWait} ч. и {minutesToWait} мин.");
             Console.ReadKey(); 
-
         }
     }
 }
