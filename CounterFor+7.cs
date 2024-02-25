@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Counter_7
+namespace CounterFor_7
 {
     internal class Program
     {
