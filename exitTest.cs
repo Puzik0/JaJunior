@@ -14,9 +14,9 @@ namespace exitTest
             int homeworkPages = 1;
             string userInput;
             string warning = "Тебе есть, что сказать учителю? \nЕсли нет, то пиши exit";
-
             Console.WriteLine(warning);
             userInput = Console.ReadLine();
+            
             while (breakWord != userInput)
             {
                 homeworkPages++;
@@ -24,6 +24,7 @@ namespace exitTest
                 Console.WriteLine(warning);
                 userInput = Console.ReadLine();
             }
+            
             switch (homeworkPages) 
             {
                 case 1:
