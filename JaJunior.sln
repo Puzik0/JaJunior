@@ -5,9 +5,9 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JaJunior", "JaJunior.csproj", "{7A104651-3051-4829-886E-019F7C4B719D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pictures", "..\Pictures\Pictures.csproj", "{8EF57370-C05B-47B2-99D7-DF7C0E681204}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pictures", "..\Pictures\Pictures.csproj", "{8EF57370-C05B-47B2-99D7-DF7C0E681204}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangePlaces", "..\ChangePlaces\ChangePlaces.csproj", "{4CD12A49-4120-447E-A6F7-5B2188165442}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChangePlaces", "..\ChangePlaces\ChangePlaces.csproj", "{4CD12A49-4120-447E-A6F7-5B2188165442}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HomeworkTest", "HomeworkTest", "{0D860998-1C1F-4E8E-9DCF-C6F22A698804}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiamonStore", "..\DiamonStore\DiamonStore.csproj", "{007F3186-DAC5-458E-963B-290A03A1A114}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueTimeTreker", "..\QueueTimeTreker\QueueTimeTreker.csproj", "{66675B89-F712-402B-8CEA-7B23E614E27F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyclesBegin", "..\CyclesBegin\CyclesBegin.csproj", "{27C3A93D-2777-4379-ADCF-66F283445F69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{66675B89-F712-402B-8CEA-7B23E614E27F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66675B89-F712-402B-8CEA-7B23E614E27F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66675B89-F712-402B-8CEA-7B23E614E27F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C3A93D-2777-4379-ADCF-66F283445F69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C3A93D-2777-4379-ADCF-66F283445F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C3A93D-2777-4379-ADCF-66F283445F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C3A93D-2777-4379-ADCF-66F283445F69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{AC717AD1-8BE4-4B44-8AC8-B1E53B20DED8} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{007F3186-DAC5-458E-963B-290A03A1A114} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{66675B89-F712-402B-8CEA-7B23E614E27F} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
+		{27C3A93D-2777-4379-ADCF-66F283445F69} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6176F3A3-A47A-4C1B-9DBF-846238A47A06}
