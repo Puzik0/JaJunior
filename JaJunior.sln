@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Counter+7", "..\Counter+7\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterWhile+7", "..\CounterWhile+7\CounterWhile+7.csproj", "{246D3D38-3844-4790-9868-089EDBF09402}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomCaunter", "..\RandomCaunter\RandomCaunter.csproj", "{FC9FD722-633F-41BB-ACA2-846412EAB5D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{246D3D38-3844-4790-9868-089EDBF09402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{246D3D38-3844-4790-9868-089EDBF09402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{246D3D38-3844-4790-9868-089EDBF09402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC9FD722-633F-41BB-ACA2-846412EAB5D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC9FD722-633F-41BB-ACA2-846412EAB5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC9FD722-633F-41BB-ACA2-846412EAB5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC9FD722-633F-41BB-ACA2-846412EAB5D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{F7815B0C-E2E5-4650-B864-811895EDE99B} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{882731D2-0212-4B53-BEF8-88D8B17761EB} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{246D3D38-3844-4790-9868-089EDBF09402} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
+		{FC9FD722-633F-41BB-ACA2-846412EAB5D0} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6176F3A3-A47A-4C1B-9DBF-846238A47A06}
