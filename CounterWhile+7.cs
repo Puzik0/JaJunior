@@ -8,16 +8,15 @@ namespace CounterWhile_7
 {
     internal class Program
     {
-        static void Main(string[] args)
-        {
             int minNumber = 5;
             int maxNumber = 103;
             int stepNumber = 7;
-            
-            while (minNumber <= maxNumber)
+            int result = minNumber;
+
+            while (result <= maxNumber)
             {
-                Console.WriteLine(minNumber);
-                minNumber += stepNumber;
+                Console.WriteLine(result);
+                result += stepNumber;
             }
         }
     }
