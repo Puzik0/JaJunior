@@ -11,7 +11,7 @@ namespace RandomCaunter
         static void Main(string[] args)
         {
            Random random = new Random();
-            int randomNumberForCaunt = random.Next(0, 101);
+            int randomNumberForCaunt = random.Next(minNumberForRandom, maxNumberForRandom);
             int caunter1 = 3;
             int caunter2 = 5;
             int sumOfnumber1 = 0;
