@@ -10,14 +10,15 @@ namespace exitTest
     {
         static void Main(string[] args)
         {
+            const int homeworkGoodEnding = 1;
             int homeworkPages = 1;
             string breakWord = "exit";
             string userInput;
-            string warning = "Тебе есть, что сказать учителю? \nЕсли нет, то пиши exit";
-            const int homeworkGoodEnding = 1;
+            string warning = $"Тебе есть, что сказать учителю? \nЕсли нет, то пиши {breakWord}";
 
             Console.WriteLine(warning);
             userInput = Console.ReadLine();
+
             while (breakWord != userInput)
             {
                 homeworkPages++;
@@ -26,16 +27,16 @@ namespace exitTest
                 userInput = Console.ReadLine();
             }
 
-            string caunterOfHomework = $"\nДо завтра нужно написать листов с домашкой: {homeworkPages}";
+            string counterOfHomework = $"\nДо завтра нужно написать листов с домашкой: {homeworkPages}";
 
             switch (homeworkPages) 
             {
                 case homeworkGoodEnding:
-                    Console.WriteLine($"Професор Йонду не любит дерзких..." +counterOfHomework);
+                    Console.WriteLine($"Как обычно вы ушли после лекции не общаясь с профессором Йонду..." +counterOfHomework);
                     break;
 
                 default:
-                    Console.WriteLine($"Как обычно вы ушли после лекции не общаясь с профессором Йонду..." +counterOfHomework);
+                    Console.WriteLine($"Професор Йонду не любит дерзких..." +counterOfHomework);
                     break;
             }
         }
