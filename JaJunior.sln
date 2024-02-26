@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CounterWhile+7", "..\Counte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomCaunter", "..\RandomCaunter\RandomCaunter.csproj", "{FC9FD722-633F-41BB-ACA2-846412EAB5D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleMenu", "..\ConsoleMenu\ConsoleMenu.csproj", "{C6D544BE-7E7A-4833-94D8-0B90FB847973}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{FC9FD722-633F-41BB-ACA2-846412EAB5D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC9FD722-633F-41BB-ACA2-846412EAB5D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC9FD722-633F-41BB-ACA2-846412EAB5D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6D544BE-7E7A-4833-94D8-0B90FB847973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D544BE-7E7A-4833-94D8-0B90FB847973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D544BE-7E7A-4833-94D8-0B90FB847973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D544BE-7E7A-4833-94D8-0B90FB847973}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{882731D2-0212-4B53-BEF8-88D8B17761EB} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{246D3D38-3844-4790-9868-089EDBF09402} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{FC9FD722-633F-41BB-ACA2-846412EAB5D0} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
+		{C6D544BE-7E7A-4833-94D8-0B90FB847973} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6176F3A3-A47A-4C1B-9DBF-846238A47A06}
