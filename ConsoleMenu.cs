@@ -10,12 +10,12 @@ namespace ConsoleMenu
     {
         static void Main(string[] args)
         {
-            const string fortuneTellingWeather = "Weather";
-            const string requestRandom = "Number";
-            const string clearWindow = "Clear";
-            const string exit = "Exit";
-            const string help = "Help";
-            const string egg = "Egg";
+            const string CommandFortuneTellingWeather = "Weather";
+            const string CommandRequestRandom = "Number";
+            const string CommandClearWindow = "Clear";
+            const string CommandExit = "Exit";
+            const string CommandHelp = "Help";
+            const string CommandEgg = "Egg";
 
             Random random = new Random();
             int minValue1 = 20;
@@ -23,32 +23,33 @@ namespace ConsoleMenu
             int weatherDegrees = random.Next(minValue1, maxValue1);
 
             string userInsert = "";
-            string unnownRequest = $"Я тебя не понял... попробуй ввести {help}";
-            string greeting = $"Привет! Хочешь понять, что тут да как пиши: {help}, Если я тебе уже надоел пиши: {exit}";
+            string agree = "Да";
+            string greeting = $"Привет! Хочешь понять, что тут да как пиши: {CommandHelp}, Если я тебе уже надоел пиши: {CommandExit}";
+            string unnownRequest = $"Я тебя не понял... попробуй ввести {CommandHelp}";
 
             Console.WriteLine(greeting);
 
-            while (userInsert != "Exit")
+            while (userInsert != CommandExit)
             {
                 userInsert = Console.ReadLine();
 
                 switch (userInsert)
                 {
-                    case help:
+                    case CommandHelp:
                         Console.WriteLine($"Тут есть такие команды:" +
-                            $"\n{exit} - Выйти из программы" +
-                            $"\n{requestRandom} Рандомное число с заданными параметрами" +
-                            $"\n{clearWindow} Очистить консоль" +
-                            $"\n{fortuneTellingWeather} На сколько будет летом жарко" +
-                            $"\n{egg} Пасхалка");
+                            $"\n{CommandExit} - Выйти из программы" +
+                            $"\n{CommandRequestRandom} Рандомное число с заданными параметрами" +
+                            $"\n{CommandClearWindow} Очистить консоль" +
+                            $"\n{CommandFortuneTellingWeather} На сколько будет летом жарко" +
+                            $"\n{CommandEgg} Пасхалка");
                         break;
 
-                    case exit:
+                    case CommandExit:
                         Console.WriteLine("Удачи!");
                         Console.ReadKey();
                         break;
 
-                    case requestRandom:
+                    case CommandRequestRandom:
                         Console.WriteLine("Введите максимальное и минимально число для рандома");
                         Console.Write("введите минимальное число: ");
                         int minValue = Convert.ToInt32(Console.ReadLine());
@@ -58,29 +59,28 @@ namespace ConsoleMenu
                         Console.WriteLine($"Ваше рандомное число: {requestedRandomNumb}");
                         break;
 
-                    case clearWindow:
+                    case CommandClearWindow:
                         Console.Clear();
                         Console.WriteLine(greeting);
                         break;
 
-                    default:
-                        Console.WriteLine(unnownRequest);
-                        break;
-
-                    case fortuneTellingWeather:
+                    case CommandFortuneTellingWeather:
                         Console.WriteLine("Хочешь погадать какая будет средняя температура воздуха этим летом?" +
                             "\nДа - если согласен");
                         userInsert = Console.ReadLine();
 
-                        if (userInsert != "Нет")
+                        if (userInsert != agree)
                         {
                             Console.WriteLine(weatherDegrees);
                         }
-
                         break;
 
-                    case egg:
+                    case CommandEgg:
                         Console.WriteLine("Какая пасхалка в консоли, ты шо?");
+                        break;
+
+                    default:
+                        Console.WriteLine(unnownRequest);
                         break;
                 }
             }
