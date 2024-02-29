@@ -8,41 +8,44 @@ namespace RandomCaunter
 {
     internal class Program
     {
-        static void Main(string[] args)
+         static void Main(string[] args)
         {
-           Random random = new Random();
+            Random random = new Random();
+            int minNumberForRandom = 0;
+            int maxNumberForRandom = 101;
             int randomNumberForCaunt = random.Next(minNumberForRandom, maxNumberForRandom);
-            int caunter1 = 3;
-            int caunter2 = 5;
-            int sumOfnumber1 = 0;
-            int sumOfnumber2 = 0;
-            int issueNumber = caunter1 * caunter2;
-            int result;
+            int result = 0;
+            int oldBufer = 0;
+            int oldBufer1 = 0;
+            int splitter = 3;
+            int splitter1 = 5;
 
-            Console.WriteLine("Ваше рандомное число:" + randomNumberForCaunt);
-
-            for (int i = 0; i <= randomNumberForCaunt; i += caunter1)
+            for (int i = 0; i <= randomNumberForCaunt; i++)
             {
-                sumOfnumber1 = sumOfnumber1 + i;
+                int newBufer = i / splitter;
+                int newBufer1 = i / splitter1;
+
+                if (newBufer > oldBufer && newBufer1 > oldBufer1) 
+                {
+                    result = result + i;
+                    oldBufer++;
+                    oldBufer1++;
+                }
+
+                else if (newBufer > oldBufer) 
+                {
+                    result = result + i;
+                    oldBufer++;
+                }
+
+                else if (newBufer1 > oldBufer1)
+                {
+                    result = result + i;
+                    oldBufer1++;
+                }
             }
 
-            Console.WriteLine("Сумма чисел кратных трём:" + sumOfnumber1);
-
-            for (int i = 0; i <= randomNumberForCaunt; i += caunter2)
-            {
-                sumOfnumber2 = sumOfnumber2 + i;
-            }
-
-            Console.WriteLine("Сумма чисел кратных пяти:" + sumOfnumber2);
-
-            result = sumOfnumber2 + sumOfnumber1;
-
-            for (int i = 0; i <= randomNumberForCaunt; i += issueNumber)
-            {
-                result = result - i;
-            }
-
-            Console.WriteLine("Сумма всех натуральных чисел кратных трём или пяти "+result);
+            Console.WriteLine($"Сумма чисел от {minNumberForRandom} до {randomNumberForCaunt} кратные числам {splitter} и {splitter1} равна = {result} ");
         }
     }
 }
