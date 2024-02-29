@@ -13,11 +13,10 @@ namespace CounterFor_7
             int minNumber = 5;
             int maxNumber = 103;
             int step = 7;
-            int result = minNumber;
-            
-            for (int i = result; i < maxNumber; i += step)
+
+            for (int i = minNumber; i <= maxNumber; i += step)
             {
-                Console.WriteLine(result = result + step);
+                Console.WriteLine(i);
             }
         }
     }
