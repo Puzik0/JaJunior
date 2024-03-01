@@ -15,33 +15,14 @@ namespace RandomCaunter
             int maxNumberForRandom = 101;
             int randomNumberForCaunt = random.Next(minNumberForRandom, maxNumberForRandom);
             int result = 0;
-            int oldBufer = 0;
-            int oldBufer1 = 0;
             int splitter = 3;
             int splitter1 = 5;
 
             for (int i = 0; i <= randomNumberForCaunt; i++)
             {
-                int newBufer = i / splitter;
-                int newBufer1 = i / splitter1;
-
-                if (newBufer > oldBufer && newBufer1 > oldBufer1) 
+                if (i / splitter > (i - 1) / splitter || i / splitter1 > (i - 1) / splitter1)
                 {
                     result = result + i;
-                    oldBufer++;
-                    oldBufer1++;
-                }
-
-                else if (newBufer > oldBufer) 
-                {
-                    result = result + i;
-                    oldBufer++;
-                }
-
-                else if (newBufer1 > oldBufer1)
-                {
-                    result = result + i;
-                    oldBufer1++;
                 }
             }
 
