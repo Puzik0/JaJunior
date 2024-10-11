@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace DegreeOfTwo
 {
@@ -8,7 +8,7 @@ namespace DegreeOfTwo
         {
             const int RequestedNumber = 2;
 
-            int counterDegree = 0;
+            int counterDegree = 1;
             int numberInDegree = 2;
 
             Random random = new Random();
@@ -16,13 +16,13 @@ namespace DegreeOfTwo
             int maxNumberForRandom = 100;
             int randomNumberForCount = random.Next(minNumberForRandom, maxNumberForRandom);
 
-            for (int i = RequestedNumber; randomNumberForCount >= numberInDegree; i *= RequestedNumber)
+            while (numberInDegree <= randomNumberForCount)
             {
+                numberInDegree *= RequestedNumber;
                 counterDegree++;
-                numberInDegree = i;
             }
 
-            Console.WriteLine($"число = {randomNumberForCount},\nстепень = {counterDegree}\nдвойка в данной степени = {numberInDegree} ");
+            Console.WriteLine($"число = {randomNumberForCount},\nстепень = {counterDegree}\n{RequestedNumber} в данной степени = {numberInDegree} ");
         }
     }
 }
