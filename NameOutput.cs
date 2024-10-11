@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace NameOutput
 {
@@ -10,6 +6,7 @@ namespace NameOutput
     {
         static void Main(string[] args)
         {
+            const int symbolsForBoard = 2; 
             int lengthUserName;
 
             string outputSymbolString ="";
@@ -24,14 +21,14 @@ namespace NameOutput
 
             specialSymbol = (Console.ReadLine());
 
-            lengthUserName = userName.Length;
+            lengthUserName = userName.Length + symbolsForBoard;
 
             for (int i = 0; i < lengthUserName; i++)
             {
                 outputSymbolString += specialSymbol;
             }
 
-            Console.WriteLine($"{outputSymbolString} \n{userName} \n{outputSymbolString}");
+            Console.WriteLine($"{outputSymbolString} \n{specialSymbol + userName + specialSymbol} \n{outputSymbolString}");
         }
     }
 }
