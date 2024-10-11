@@ -16,16 +16,10 @@ namespace DegreeOfTwo
             int maxNumberForRandom = 100;
             int randomNumberForCount = random.Next(minNumberForRandom, maxNumberForRandom);
 
-            for (int i = RequestedNumber; i <= randomNumberForCount; i *= RequestedNumber)
+             for (int i = RequestedNumber; randomNumberForCount >= numberInDegree; i *= RequestedNumber)
             {
                 counterDegree++;
                 numberInDegree = i;
-            }
-
-            if (randomNumberForCount >= numberInDegree)
-            {
-                counterDegree++;
-                numberInDegree *= RequestedNumber;
             }
 
             Console.WriteLine($"число = {randomNumberForCount},\nстепень = {counterDegree}\nдвойка в данной степени = {numberInDegree} ");
