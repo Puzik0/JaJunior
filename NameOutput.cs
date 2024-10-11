@@ -6,12 +6,11 @@ namespace NameOutput
     {
         static void Main(string[] args)
         {
-            const int symbolsForBoard = 2; 
-            int lengthUserName;
-
+            int lengthOfStrings;
             string outputSymbolString ="";
             string userName;
             string specialSymbol;
+            string middleString; 
 
             Console.WriteLine("Введите Ваше имя");
 
@@ -21,14 +20,16 @@ namespace NameOutput
 
             specialSymbol = (Console.ReadLine());
 
-            lengthUserName = userName.Length + symbolsForBoard;
+            middleString = specialSymbol + userName + specialSymbol;
 
-            for (int i = 0; i < lengthUserName; i++)
+            lengthOfStrings = middleString.Length;
+
+            for (int i = 0; i < lengthOfStrings; i++)
             {
                 outputSymbolString += specialSymbol;
             }
 
-            Console.WriteLine($"{outputSymbolString} \n{specialSymbol + userName + specialSymbol} \n{outputSymbolString}");
+            Console.WriteLine($"{outputSymbolString} \n{middleString} \n{outputSymbolString}");
         }
     }
 }
