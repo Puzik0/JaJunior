@@ -13,7 +13,6 @@ namespace ProgramUnderPassword
             const string Password = "HARDpassword";
 
             int attemptsPasswordInput = 3;
-
             string userInput;
 
             for (int i = attemptsPasswordInput; i > 0 ; i--)
