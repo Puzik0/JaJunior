@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyConverter", "..\Cur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NameOutput", "..\NameOutput\NameOutput.csproj", "{3FF30D2A-47EF-4B90-9B5E-4BCA24C437CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramUnderPassword", "..\ProgramUnderPassword\ProgramUnderPassword.csproj", "{14DD0B53-D144-4227-82F5-B9C4457E3346}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{3FF30D2A-47EF-4B90-9B5E-4BCA24C437CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FF30D2A-47EF-4B90-9B5E-4BCA24C437CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FF30D2A-47EF-4B90-9B5E-4BCA24C437CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14DD0B53-D144-4227-82F5-B9C4457E3346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14DD0B53-D144-4227-82F5-B9C4457E3346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14DD0B53-D144-4227-82F5-B9C4457E3346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14DD0B53-D144-4227-82F5-B9C4457E3346}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +117,7 @@ Global
 		{C6D544BE-7E7A-4833-94D8-0B90FB847973} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{F0E19D0B-202C-4317-A083-E316B97DDD29} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{3FF30D2A-47EF-4B90-9B5E-4BCA24C437CF} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
+		{14DD0B53-D144-4227-82F5-B9C4457E3346} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6176F3A3-A47A-4C1B-9DBF-846238A47A06}
