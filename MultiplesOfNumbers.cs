@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace MultiplesOfNumbers
 {
@@ -15,9 +15,13 @@ namespace MultiplesOfNumbers
             int maxCountSpace = 150;
             int counterOfNumbersInclude = 0;
 
-            for (int i = minCountSpace; i <= maxCountSpace; i += randomNumberForCount)
+            for (int i = 0; i <= maxCountSpace; i += randomNumberForCount)
             {
-                counterOfNumbersInclude++;
+                if (i>minCountSpace)
+                {
+                    Console.WriteLine(i);
+                    counterOfNumbersInclude++;
+                }
             }
 
             Console.WriteLine($" Число {randomNumberForCount}, кол-во кратных чисел {counterOfNumbersInclude} \n в промежутке между {minCountSpace} и {maxCountSpace}");
