@@ -16,9 +16,9 @@ namespace ProgramUnderPassword
 
             string userInput;
 
-            for (int i = 0; i < attemptsPasswordInput; i++)
+            for (int i = attemptsPasswordInput; i > 0 ; i--)
             {
-                Console.WriteLine("Введите пароль");
+                Console.WriteLine($"Введите пароль. Попыток для ввода осталось : {i}");
                 userInput = Console.ReadLine();
 
                 if (userInput == Password)
