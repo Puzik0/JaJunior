@@ -16,7 +16,7 @@ namespace DegreeOfTwo
             int maxNumberForRandom = 100;
             int randomNumberForCount = random.Next(minNumberForRandom, maxNumberForRandom);
 
-             for (int i = RequestedNumber; randomNumberForCount >= numberInDegree; i *= RequestedNumber)
+            for (int i = RequestedNumber; randomNumberForCount >= numberInDegree; i *= RequestedNumber)
             {
                 counterDegree++;
                 numberInDegree = i;
