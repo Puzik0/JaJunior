@@ -11,8 +11,8 @@ namespace ProgramUnderPassword
         static void Main(string[] args)
         {
             const string Password = "HARDpassword";
+            const int attemptsPasswordInput = 3;
 
-            int attemptsPasswordInput = 3;
             string userInput;
 
             for (int i = attemptsPasswordInput; i > 0 ; i--)
