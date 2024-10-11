@@ -13,7 +13,7 @@ namespace CurrencyConverter
             const string CommandExit = "Exit";
             const string CommandHelp = "Help";
             const string Error = "Недостаточно валюты в кошельке";
-            const string CommandWallet = "Кошелёк"; 
+            const string CommandWallet = "Wallet"; 
             const string CommandRubToUsd = "1";
             const string CommandRubToEur = "2";
             const string CommandUsdToRub = "3";
