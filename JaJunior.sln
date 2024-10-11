@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgramUnderPassword", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplesOfNumbers", "..\MultiplesOfNumbers\MultiplesOfNumbers.csproj", "{EE0A4579-C07C-4716-B312-0A541370DE98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DegreeOfTwo", "..\DegreeOfTwo\DegreeOfTwo.csproj", "{0E57AB9C-9474-47A1-B230-14B314788D61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,10 @@ Global
 		{EE0A4579-C07C-4716-B312-0A541370DE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE0A4579-C07C-4716-B312-0A541370DE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE0A4579-C07C-4716-B312-0A541370DE98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E57AB9C-9474-47A1-B230-14B314788D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E57AB9C-9474-47A1-B230-14B314788D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E57AB9C-9474-47A1-B230-14B314788D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E57AB9C-9474-47A1-B230-14B314788D61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +131,7 @@ Global
 		{3FF30D2A-47EF-4B90-9B5E-4BCA24C437CF} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{14DD0B53-D144-4227-82F5-B9C4457E3346} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{EE0A4579-C07C-4716-B312-0A541370DE98} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
+		{0E57AB9C-9474-47A1-B230-14B314788D61} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6176F3A3-A47A-4C1B-9DBF-846238A47A06}
