@@ -34,8 +34,8 @@ namespace CurrencyConverter
 
             string userInput = "";
             string currencyToExchangeQuestion = "Сколько хотите обменять?: ";
-            string greeting = "Для вызова доступных команд введи " + CommandHelp;
-            string Success = "Операция произведена";
+            string greetingUserInConsole = "Для вызова доступных команд введи " + CommandHelp;
+            string SuccessfulConvert = "Операция произведена";
 
             Console.WriteLine("Введите кол-во валюты у вас на счету.");
             Console.Write("Кол-во рублей: ");
@@ -44,7 +44,7 @@ namespace CurrencyConverter
             dollarsInWallet = Convert.ToSingle(Console.ReadLine());
             Console.Write("Кол-во евро: ");
             eurosInWallet = Convert.ToSingle(Console.ReadLine());
-            Console.WriteLine(greeting);
+            Console.WriteLine(greetingUserInConsole);
 
             while (userInput != CommandExit)
             {
@@ -61,7 +61,7 @@ namespace CurrencyConverter
                         {
                             rublesInWallet -= currencyToExchange;
                             dollarsInWallet += currencyToExchange * rubToUsd;
-                            Console.WriteLine(Success);
+                            Console.WriteLine(SuccessfulConvert);
                         }
                         else
                         {
@@ -73,11 +73,12 @@ namespace CurrencyConverter
                             Console.WriteLine("Рубли в Евро");
                         Console.WriteLine(currencyToExchangeQuestion);
                         currencyToExchange = Convert.ToSingle(Console.ReadLine());
+
                         if (currencyToExchange <= rublesInWallet)
                         {
                             rublesInWallet -= currencyToExchange;
                             eurosInWallet += currencyToExchange * rubToEur;
-                            Console.WriteLine(Success);
+                            Console.WriteLine(SuccessfulConvert);
                         }
                         else
                         {
@@ -89,11 +90,12 @@ namespace CurrencyConverter
                             Console.WriteLine("Доллары в Рубли");
                         Console.WriteLine(currencyToExchangeQuestion);
                         currencyToExchange = Convert.ToSingle(Console.ReadLine());
+
                         if (currencyToExchange <= dollarsInWallet)
                         {
                             dollarsInWallet -= currencyToExchange;
                             rublesInWallet += currencyToExchange * usdToRub;
-                            Console.WriteLine(Success);
+                            Console.WriteLine(SuccessfulConvert);
                         }
                         else
                         {
@@ -105,11 +107,12 @@ namespace CurrencyConverter
                             Console.WriteLine("Доллары в Евро");
                         Console.WriteLine(currencyToExchangeQuestion);
                         currencyToExchange = Convert.ToSingle(Console.ReadLine());
+
                         if (currencyToExchange <= dollarsInWallet)
                         {
                             dollarsInWallet -= currencyToExchange;
                             eurosInWallet += currencyToExchange * usdToEur;
-                            Console.WriteLine(Success);
+                            Console.WriteLine(SuccessfulConvert);
                         }
                         else
                         {
@@ -121,11 +124,12 @@ namespace CurrencyConverter
                             Console.WriteLine("Евро в Рубли");
                         Console.WriteLine(currencyToExchangeQuestion);
                         currencyToExchange = Convert.ToSingle(Console.ReadLine());
+
                         if (currencyToExchange <= eurosInWallet)
                         {
                             eurosInWallet -= currencyToExchange;
                             rublesInWallet += currencyToExchange * eurToRub;
-                            Console.WriteLine(Success);
+                            Console.WriteLine(SuccessfulConvert);
                         }
                         else
                         {
@@ -137,11 +141,12 @@ namespace CurrencyConverter
                             Console.WriteLine("Евро в Доллары");
                         Console.WriteLine(currencyToExchangeQuestion);
                         currencyToExchange = Convert.ToSingle(Console.ReadLine());
+
                         if (currencyToExchange <= eurosInWallet)
                         {
                             eurosInWallet -= currencyToExchange;
                             dollarsInWallet += currencyToExchange * eurToUsd;
-                            Console.WriteLine(Success);
+                            Console.WriteLine(SuccessfulConvert);
                         }
                         else
                         {
