@@ -12,21 +12,22 @@ namespace RandomCaunter
         {
             Random random = new Random();
             int minNumberForRandom = 0;
-            int maxNumberForRandom = 101;
-            int randomNumberForCaunt = random.Next(minNumberForRandom, maxNumberForRandom);
+            int maxNumberForRandom = 99;
+            int randomNumberForCount = random.Next(minNumberForRandom, maxNumberForRandom);
             int result = 0;
-            int splitter = 3;
-            int splitter1 = 5;
+            int firstRequestedSplitter = 3;
+            int secondRequestedSplitter = 5;
 
-            for (int i = 0; i <= randomNumberForCaunt; i++)
+            for (int i = 0; i <= randomNumberForCount; i++)
             {
-                if (i / splitter > (i - 1) / splitter || i / splitter1 > (i - 1) / splitter1)
+                if (i % firstRequestedSplitter == 0 || i % secondRequestedSplitter == 0 )
                 {
                     result = result + i;
                 }
             }
 
-            Console.WriteLine($"Сумма чисел от {minNumberForRandom} до {randomNumberForCaunt} кратные числам {splitter} и {splitter1} равна = {result} ");
+            Console.WriteLine($"Сумма чисел от {minNumberForRandom} до {randomNumberForCount} " +
+                $"кратные числам {firstRequestedSplitter} или {secondRequestedSplitter} равна = {result} ");
         }
     }
 }
