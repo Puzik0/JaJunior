@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace BossFight
 {
@@ -44,29 +40,8 @@ namespace BossFight
 
             string userCommand = "";
 
-            while (hpHero > 0 || hpBoss > 0)
+            while (hpHero > 0 && hpBoss > 0)
             {
-
-                if (hpBoss <= 0 || hpHero <= 0)
-                {
-                    if (hpBoss <= 0)
-                    {
-                        Console.WriteLine($"*Художественный текст о победе {heroName} над противником {bossName}*");
-                        break;
-                    }
-                    else if (hpHero <= 0)
-                    {
-                        Console.WriteLine($"*Художественный текст о том на сколько неудачник: {heroName} был вкусный для страшного монстра: {bossName}*");
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Сегодня смерть не стала выбирать и забрала две души");
-                        break;
-                    }
-
-                }
-
                 Random randomLuck = new Random();
                 int minHeroLuck = 0;
                 int maxHeroLuck = 3;
@@ -81,12 +56,12 @@ namespace BossFight
                 int regularHeroAttack = attackHero * luckHero;
 
                 Console.WriteLine(heroTurn + " Удача: " + luckHero + " Сила босса: " + bossPower);
-                Console.WriteLine( $"Ваше здоровье:{hpHero}, Запас маны: {mpHero}, Святых склянок: {holyPotions}\n" +
+                Console.WriteLine($"Ваше здоровье:{hpHero}, Запас маны: {mpHero}, Святых склянок: {holyPotions}\n" +
                     $"Здоровье монстра:{hpBoss}");
                 userCommand = Console.ReadLine();
 
-                switch (userCommand) 
-                { 
+                switch (userCommand)
+                {
                     case CommandForAttack:
                         Console.WriteLine(bossTakeDamage + regularHeroAttack);
                         hpBoss -= regularHeroAttack;
@@ -94,7 +69,7 @@ namespace BossFight
                         Console.WriteLine(bossTurn);
                         Console.WriteLine(heroTakeDamage + regularBossattack);
                         hpHero -= regularBossattack;
-                        break;
+                        return;
 
                     case CommandForUseFireBall:
 
@@ -120,7 +95,7 @@ namespace BossFight
                             Console.WriteLine(heroTakeDamage + regularBossattack);
                             hpHero -= regularBossattack;
                         }
-                        break;
+                        continue;
 
                     case CommandForUsePotions:
                         Console.WriteLine("Бутылёк с ярким содержимым был быстро выпит вами");
@@ -139,15 +114,15 @@ namespace BossFight
                         Console.WriteLine(bossTurn);
                         Console.WriteLine(heroTakeDamage + regularBossattack);
                         hpHero -= regularBossattack;
-                        break;
+                        continue;
 
                     case CommandForHelp:
-                        Console.WriteLine("Это всё, чему тебя учили" + 
+                        Console.WriteLine("Это всё, чему тебя учили" +
                             $"{CommandForAttack} - Атака мечём с помощью силы и удачи\n" +
                             $"{CommandForUseFireBall} - Атака магией, наносит большой урон. После броска необходимо повторно активировать для взрыва.\n" +
                             $"{CommandForUsePotions} - Выпить элексир. Восстанавливает максимальное кол-во здоровья и маны.\n" +
                             $"{CommandForGuard}\n - Поднять щит. Позволяет защититься от сильной атаки монстра");
-                        break;
+                        continue;
 
                     case CommandForGuard:
                         Console.WriteLine("Кусок железа это то, что отделяет вас от атаки монстра");
@@ -155,35 +130,46 @@ namespace BossFight
                         if (bossPower == 2)
                         {
                             Console.WriteLine("Атака монстра оставила внушительную царапину на щите. Натиск был очень сильный вы чувствуете боль в руке.");
-                            hpHero -=bossPower;
+                            hpHero -= bossPower;
                         }
 
                         else
                         {
                             Console.WriteLine("Атака монстра была успешно отбита без урона");
                         }
-                        break;
+                        continue;
 
-                    case CommandForCheaters: 
+                    case CommandForCheaters:
                         Console.WriteLine("Пх’нглуи мглв’нафх Ктулху Р’льех вгах’нагл фхтагн");
                         hpHero = 0;
-                        break;
+                        continue;
 
                     default:
                         Console.WriteLine(heroFall);
                         Console.WriteLine(bossTurn);
                         Console.WriteLine(heroTakeDamage + regularBossattack);
                         hpHero -= regularBossattack;
-                        break;
+                        continue;
+                }
+            }
 
-             
-                
-
+            if (hpBoss <= 0 || hpHero <= 0)
+            {
+                if (hpBoss <= 0)
+                {
+                    Console.WriteLine($"*Художественный текст о победе {heroName} над противником {bossName}*");
+                    
+                }
+                else if (hpHero <= 0)
+                {
+                    Console.WriteLine($"*Художественный текст о том на сколько неудачник: {heroName} был вкусный для страшного монстра: {bossName}*");
+                }
+                else
+                {
+                    Console.WriteLine("Сегодня смерть не стала выбирать и забрала две души");
                 }
 
             }
-
-
         }
     }
 }
