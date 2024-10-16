@@ -15,18 +15,20 @@ namespace BossFight
             const string heroFall = "Замешкался";
 
             string heroName = "Безымянный охотник";
-            int hpHero = 100;
-            int mpHero = 100;
+            int MaximumHitPointHero = 100;
+            int MaximumMagicPointsHero = 100;
+            int hitPointHero = MaximumHitPointHero;
+            int magicPointHero = MaximumMagicPointsHero;
             int attackHero = 5;
             int magicAttack = 10;
-            int magicPrice = 20; 
+            int magicPrice = 20;
             int holyPotions = 3;
-            bool nuckFireBallSwitcher = false;
+            bool nucFireBallSwitcher = false;
             string heroTurn = $"{heroName} может атаковать...";
             string heroTakeDamage = $"{heroName} получает урон в размере: ";
 
             string bossName = "Вялая слизь";
-            int hpBoss = 300;
+            int hitPointBoss = 300;
             int attackBoss = 10;
             string bossTurn = $"{bossName} атакует ";
             string bossTakeDamage = $"{bossName} получает урон равный: ";
@@ -40,7 +42,7 @@ namespace BossFight
 
             string userCommand = "";
 
-            while (hpHero > 0 && hpBoss > 0)
+            while (hitPointHero > 0 && hitPointBoss > 0)
             {
                 Random randomLuck = new Random();
                 int minHeroLuck = 0;
@@ -52,48 +54,48 @@ namespace BossFight
                 int maxBossPower = 3;
                 int bossPower = randomBossPower.Next(minBossPower, maxBossPower);
 
-                int regularBossattack = attackBoss * bossPower;
+                int regularBossAttack = attackBoss * bossPower;
                 int regularHeroAttack = attackHero * luckHero;
 
                 Console.WriteLine(heroTurn + " Удача: " + luckHero + " Сила босса: " + bossPower);
-                Console.WriteLine($"Ваше здоровье:{hpHero}, Запас маны: {mpHero}, Святых склянок: {holyPotions}\n" +
-                    $"Здоровье монстра:{hpBoss}");
+                Console.WriteLine($"Ваше здоровье:{hitPointHero}, Запас маны: {magicPointHero}, Святых склянок: {holyPotions}\n" +
+                    $"Здоровье монстра:{hitPointBoss}");
                 userCommand = Console.ReadLine();
 
                 switch (userCommand)
                 {
                     case CommandForAttack:
                         Console.WriteLine(bossTakeDamage + regularHeroAttack);
-                        hpBoss -= regularHeroAttack;
+                        hitPointBoss -= regularHeroAttack;
 
                         Console.WriteLine(bossTurn);
-                        Console.WriteLine(heroTakeDamage + regularBossattack);
-                        hpHero -= regularBossattack;
+                        Console.WriteLine(heroTakeDamage + regularBossAttack);
+                        hitPointHero -= regularBossAttack;
                         return;
 
                     case CommandForUseFireBall:
 
-                        if (nuckFireBallSwitcher == true)
+                        if (nucFireBallSwitcher == true)
                         {
                             Console.WriteLine("*Художественный текс описывающий взрыв огненного шара* который нанёс урона монстру: " + magicAttack);
-                            hpBoss -= magicAttack * (luckHero + 1);
+                            hitPointBoss -= magicAttack * (luckHero + 1);
                             Console.WriteLine(bossTurn);
-                            Console.WriteLine(heroTakeDamage + regularBossattack);
-                            hpHero -= regularBossattack;
-                            nuckFireBallSwitcher = false;
+                            Console.WriteLine(heroTakeDamage + regularBossAttack);
+                            hitPointHero -= regularBossAttack;
+                            nucFireBallSwitcher = false;
                         }
-                        else if (nuckFireBallSwitcher == false && mpHero >= magicPrice)
+                        else if (nucFireBallSwitcher == false && magicPointHero >= magicPrice)
                         {
                             Console.WriteLine("* Художественный текс о запуске огненного шара и о том, что противник засмотрелся на огонёк *");
-                            nuckFireBallSwitcher = true;
-                            mpHero -= magicPrice;
+                            nucFireBallSwitcher = true;
+                            magicPointHero -= magicPrice;
                         }
                         else
                         {
                             Console.WriteLine("*художественный текст о неудаче при создании заклинания* Недостаточно маны");
                             Console.WriteLine(bossTurn);
-                            Console.WriteLine(heroTakeDamage + regularBossattack);
-                            hpHero -= regularBossattack;
+                            Console.WriteLine(heroTakeDamage + regularBossAttack);
+                            hitPointHero -= regularBossAttack;
                         }
                         continue;
 
@@ -103,8 +105,8 @@ namespace BossFight
                         if (holyPotions != 0)
                         {
                             holyPotions--;
-                            hpHero = 100;
-                            mpHero = 100;
+                            hitPointHero = MaximumHitPointHero;
+                            magicPointHero = MaximumMagicPointsHero;
                         }
                         else
                         {
@@ -112,8 +114,8 @@ namespace BossFight
                         }
 
                         Console.WriteLine(bossTurn);
-                        Console.WriteLine(heroTakeDamage + regularBossattack);
-                        hpHero -= regularBossattack;
+                        Console.WriteLine(heroTakeDamage + regularBossAttack);
+                        hitPointHero -= regularBossAttack;
                         continue;
 
                     case CommandForHelp:
@@ -127,10 +129,10 @@ namespace BossFight
                     case CommandForGuard:
                         Console.WriteLine("Кусок железа это то, что отделяет вас от атаки монстра");
 
-                        if (bossPower == 2)
+                        if (bossPower == maxBossPower - 1)
                         {
                             Console.WriteLine("Атака монстра оставила внушительную царапину на щите. Натиск был очень сильный вы чувствуете боль в руке.");
-                            hpHero -= bossPower;
+                            hitPointHero -= bossPower;
                         }
 
                         else
@@ -141,26 +143,26 @@ namespace BossFight
 
                     case CommandForCheaters:
                         Console.WriteLine("Пх’нглуи мглв’нафх Ктулху Р’льех вгах’нагл фхтагн");
-                        hpHero = 0;
+                        hitPointHero = 0;
                         continue;
 
                     default:
                         Console.WriteLine(heroFall);
                         Console.WriteLine(bossTurn);
-                        Console.WriteLine(heroTakeDamage + regularBossattack);
-                        hpHero -= regularBossattack;
+                        Console.WriteLine(heroTakeDamage + regularBossAttack);
+                        hitPointHero -= regularBossAttack;
                         continue;
                 }
             }
 
-            if (hpBoss <= 0 || hpHero <= 0)
+            if (hitPointBoss <= 0 || hitPointHero <= 0)
             {
-                if (hpBoss <= 0)
+                if (hitPointBoss <= 0)
                 {
                     Console.WriteLine($"*Художественный текст о победе {heroName} над противником {bossName}*");
-                    
+
                 }
-                else if (hpHero <= 0)
+                else if (hitPointHero <= 0)
                 {
                     Console.WriteLine($"*Художественный текст о том на сколько неудачник: {heroName} был вкусный для страшного монстра: {bossName}*");
                 }
