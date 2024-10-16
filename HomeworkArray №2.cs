@@ -36,6 +36,7 @@ namespace HomeworkArray__2
                 {
                     Console.Write(A[i, j] + " ");
                 }
+
                 Console.WriteLine();
             }
 
@@ -59,6 +60,7 @@ namespace HomeworkArray__2
                 {
                     Console.Write(A[i, j] + " ");
                 }
+
                 Console.WriteLine();
             }
 
