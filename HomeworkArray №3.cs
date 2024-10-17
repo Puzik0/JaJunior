@@ -20,7 +20,7 @@ namespace HomeworkArray__3
                 Console.WriteLine($"\nЛокальное максимально значение {numbers[0]}");
             }
 
-            for (int i = 1; i < numbers.Length - 1; i++)
+            for (int i = 1; i < lustArrayIndex; i++)
             {
                 if (numbers[i - 1] < numbers[i] && numbers[i] > numbers[i + 1])
                 {
