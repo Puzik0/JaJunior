@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace HomeworkArray__3
 {
@@ -10,30 +6,31 @@ namespace HomeworkArray__3
     {
         static void Main(string[] args)
         {
-            int[] array = { 10, 9, 51, 51, 65, 1, 61, 51, 561, 51, 65, 651, 561, 684, 84, 654, 645, 46, 84, 321, 3, 5 };
+            int[] numbers = { 10, 9, 51, 51, 65, 1, 61, 51, 561, 51, 65, 651, 561, 684, 84, 654, 645, 46, 84, 321, 3, 5 };
 
-            foreach (int item in array)
+            int lustArrayIndex = numbers.Length - 1;
+
+            foreach (int item in numbers)
             {
                 Console.Write(item + " ");
             }
 
-            for (int i = 0; i < array.Length; i++)
+            if (numbers[0] > numbers[1])
             {
-                if (i == 0 || i == array.Length - 1)
+                Console.WriteLine($"\nЛокальное максимально значение {numbers[0]}");
+            }
+
+            for (int i = 1; i < numbers.Length - 1; i++)
+            {
+                if (numbers[i - 1] < numbers[i] && numbers[i] > numbers[i + 1])
                 {
-                    if (i == 0 && array[i] > array[i + 1])
-                    {
-                        Console.WriteLine($"\nЛокальное максимально значение {array[i]}");
-                    }
-                    else if (i == array.Length - 1 && array[i] > array[i - 1])
-                    {
-                        Console.WriteLine($"\nЛокальное максимально значение {array[i]}");
-                    }
+                    Console.WriteLine($"\nЛокальное максимально значение {numbers[i]}");
                 }
-                else if (array[i - 1] < array[i] && array[i] > array[i + 1])
-                {
-                    Console.WriteLine($"\nЛокальное максимально значение {array[i]}");
-                }
+            }
+
+            if (numbers[lustArrayIndex] > numbers[lustArrayIndex - 1])
+            {
+                Console.WriteLine($"\nЛокальное максимально значение {numbers[lustArrayIndex]}");
             }
         }
     }
