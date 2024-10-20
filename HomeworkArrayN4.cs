@@ -14,11 +14,11 @@ namespace HomeworkArrayN4
             bool isOpen = true;
             int[] numbers = new int[1];
             int sum = 0;
-
             string userInput = "";
 
             while (isOpen)
             {
+                Console.Clear();
                 Console.SetCursorPosition(arrayPositionX, arrayPositionY);
 
                 foreach (int item in numbers)
@@ -37,6 +37,7 @@ namespace HomeworkArrayN4
                         break;
 
                     case CommandToSum:
+
                         foreach (int item in numbers)
                         {
                             sum += item;
@@ -59,11 +60,7 @@ namespace HomeworkArrayN4
                         tempArrayNumbers[numbers.Length - 1] = userNumber;
                         numbers = tempArrayNumbers;
                         break;
-
                 }
-
-                Console.Clear();
-
             }
         }
     }
