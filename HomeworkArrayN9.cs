@@ -9,13 +9,16 @@ namespace HomeworkArrayN9
             int deepCounter = 0;
             int deep = 0;
 
-            Console.WriteLine("Введите строку содержащую только данные символы - '(' и ')'");
+            char openDeep = '(';
+            char closeDeep = ')'; 
+
+            Console.WriteLine($"Введите строку содержащую только данные символы - {openDeep} и {closeDeep}");
 
             string userInput = Console.ReadLine();
 
             for (int i = 0; i < userInput.Length; i++)
             {
-                if (userInput[i] == '(')
+                if (userInput[i] == openDeep)
                 {
                     deepCounter++;
 
@@ -25,7 +28,7 @@ namespace HomeworkArrayN9
                     }
                 }
 
-                else if (userInput[i] == ')')
+                else if (userInput[i] == closeDeep)
                 {
                     deepCounter--;
 
