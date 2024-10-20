@@ -8,7 +8,11 @@ namespace HomeworkArrayN8
         {
             int[] numbers = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
 
-            int sortTimes = 2;
+            Console.WriteLine("сколько раз сортировать");
+
+            int userInput = Convert.ToInt32(Console.ReadLine());
+
+            int sortTimes = userInput % numbers.Length;
 
             Console.WriteLine("Массив");
 
@@ -19,15 +23,14 @@ namespace HomeworkArrayN8
 
             for (int i = 0; i < sortTimes; i++)
             {
-                for (int j = 0; j < numbers.Length - 1; j++)
+                int tempNumber = numbers[0];
+
+                for (int j = 1; j < numbers.Length; j++)
                 {
-                    if (numbers[j] > numbers[j + 1])
-                    {
-                        int tempNumber = numbers[j];
-                        numbers[j] = numbers[j + 1];
-                        numbers[j + 1] = tempNumber;
-                    }
+                    numbers[j - 1] = numbers[j];
                 }
+
+                numbers[numbers.Length - 1] = tempNumber;
             }
 
             Console.WriteLine($"\n\nОтсортированный массив со сдвигом {sortTimes} раз");
