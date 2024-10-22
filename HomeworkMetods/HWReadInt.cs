@@ -6,7 +6,6 @@ namespace HWReadInt
     {
         static void Main(string[] args)
         {
-
             int number = GetNumber();
 
             Console.WriteLine(number);
@@ -14,23 +13,11 @@ namespace HWReadInt
 
         static int GetNumber()
         {
-            bool isOpen = true;
-            int result = 0;
+            int result;
 
-            while (isOpen)
+            while (int.TryParse(Console.ReadLine(), out result) == false)
             {
-                Console.WriteLine("Введите что-то (но лучше чтоб это было число)");
-
-                bool canConvert = int.TryParse(Console.ReadLine(), out int number);
-
-                if (canConvert == true)
-                {
-                    result = number;
-
-                    isOpen = false;
-                }
-
-                Console.Clear();
+                Console.WriteLine("Введено некорректное значение");
             }
 
             return result;
