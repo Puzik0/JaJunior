@@ -6,32 +6,34 @@ namespace HWReadInt
     {
         static void Main(string[] args)
         {
+
+            int number = GetNumber();
+
+            Console.WriteLine(number);
+        }
+
+        static int GetNumber()
+        {
             bool isOpen = true;
+            int result = 0;
 
             while (isOpen)
             {
                 Console.WriteLine("Введите что-то (но лучше чтоб это было число)");
 
-                string userInput = Console.ReadLine();
-                СonvertInNumber(userInput);
+                bool canConvert = int.TryParse(Console.ReadLine(), out int number);
 
-                Console.WriteLine("\nНажмите любую клавишу...");
-                Console.ReadKey();
+                if (canConvert == true)
+                {
+                    result = number;
+
+                    isOpen = false;
+                }
+
                 Console.Clear();
             }
-        }
 
-        static void СonvertInNumber(string value)
-        {
-           bool canConvert = int.TryParse(value, out int result);  
-
-            if (canConvert == true)
-            {
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Введено число: {result}");
-                Console.ForegroundColor = ConsoleColor.White;
-            }
+            return result;
         }
     }
 }
