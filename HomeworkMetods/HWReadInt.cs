@@ -13,12 +13,7 @@ namespace HWReadInt
                 Console.WriteLine("Введите что-то (но лучше чтоб это было число)");
 
                 string userInput = Console.ReadLine();
-                int convertedUserInput = Convertation(userInput);
-
-                if (convertedUserInput != 0)
-                {
-                    Answer(convertedUserInput);
-                }
+                СonvertInNumber(userInput);
 
                 Console.WriteLine("\nНажмите любую клавишу...");
                 Console.ReadKey();
@@ -26,19 +21,18 @@ namespace HWReadInt
             }
         }
 
-        static int Convertation(string str)
+        static void СonvertInNumber(string value)
         {
-            int number;
-            int.TryParse(str, out number);
-            return number;
-        }
+           bool canConvert = int.TryParse(value, out int result);  
 
-        static void Answer(int num)
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Введено число: {num}");
-            Console.ForegroundColor = ConsoleColor.White;
+            if (canConvert == true)
+            {
+                int.TryParse(value, out int converted);
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Введено число: {converted}");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
         }
     }
 }
