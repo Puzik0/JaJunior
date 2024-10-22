@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace HWPersonnelAccounting
 {
@@ -27,10 +28,11 @@ namespace HWPersonnelAccounting
             while (isOpen)
             {
                 Console.WriteLine($"\n{commandHelp} - Помощь");
+                WriteText("Введите необходимую команду");
 
                 switch (Console.ReadLine())
                 {
-                    case "1":
+                    case commandAddAccount:
                         Console.Clear();
                         WriteText("Для добавления досье введите ФИО разделяя пробелом");
                         personnelAccounting = AddAccount(Console.ReadLine(), personnelAccounting);
@@ -39,27 +41,27 @@ namespace HWPersonnelAccounting
                         WriteText("Данные внесены", ConsoleColor.Green);
                         continue;
 
-                    case "2":
+                    case commandShowAll:
                         Console.Clear();
                         ShowAllAccounts(personnelAccounting, positionsAccounting);
                         continue;
 
-                    case "3":
+                    case commandRemoveAccount:
                         Console.Clear();
                         RemoveAccount(personnelAccounting, positionsAccounting, out personnelAccounting, out positionsAccounting);
                         continue;
 
-                    case "4":
+                    case commandFamilySearch:
                         Console.Clear();
                         WriteText("Введите фамилию для поиска по базе");
                         FindeFamilyname(Console.ReadLine(), personnelAccounting);
                         continue;
 
-                    case "5":
+                    case commandExit:
                         isOpen = false;
                         break;
 
-                    case "6":
+                    case commandHelp:
                         Console.Clear();
                         Console.WriteLine($"для управления программой используйте эти команды:" +
                             $"\n{commandAddAccount} - Добавить досье" +
@@ -84,46 +86,39 @@ namespace HWPersonnelAccounting
             Console.WriteLine(text);
             Console.ForegroundColor = defoult;
         }
-        static void ShowAllAccounts(string[] strings1, string[] strings2)
+        static void ShowAllAccounts(string[] accountAddress, string[] accountPositions)
         {
-            for (int i = 0; i < strings1.Length; i++)
+            for (int i = 0; i < accountAddress.Length; i++)
             {
-                Console.WriteLine($"{i + 1} - {strings1[i]} - {strings2[i]}");
+                Console.WriteLine($"{i + 1} - {accountAddress[i]} - {accountPositions[i]}");
             }
         }
         static string[] AddAccount(string text, string[] strings)
         {
-            AddObjectInArray(strings);
-            strings[strings.Length - 1] = text;
+            AddObjectInArray(strings, text);
             WriteText("Данные успешно внесены", ConsoleColor.Green);
             return strings;
         }
-        static void RemoveAccount(string[] strings, string[] strings1, out string[] changedString, out string[] changedString1)
+        static void RemoveAccount(string[] accountAddress, string[] accountPosition, out string[] changedAccountAddress, out string[] changedAccountPosition)
         {
             WriteText("Укажите номер досье для удаления", ConsoleColor.DarkYellow);
             int indexForDeliting = Convert.ToInt32(Console.ReadLine());
 
-            if (indexForDeliting == 0 || indexForDeliting > strings.Length)
+            if (indexForDeliting == 0 || indexForDeliting > accountAddress.Length)
             {
                 WriteText("Введено некорректное значение", ConsoleColor.Red);
-                changedString = strings;
-                changedString1 = strings1;
+                changedAccountAddress = accountAddress;
+                changedAccountPosition = accountPosition;
             }
 
             else
             {
-                for (int i = indexForDeliting; i < strings.Length; i++)
-                {
-                    strings[i - 1] = strings[i];
-                    strings1[i - 1] = strings1[i];
-                }
-
-                changedString = RemoveObjectFromArray(strings, indexForDeliting);
-                changedString1 = RemoveObjectFromArray(strings1, indexForDeliting);
+                changedAccountAddress = RemoveObjectFromArray(accountAddress, indexForDeliting);
+                changedAccountPosition = RemoveObjectFromArray(accountPosition, indexForDeliting);
                 WriteText("Запись успешно удалена", ConsoleColor.Green);
             }
         }
-        static string[] AddObjectInArray(string[] strings)
+        static string[] AddObjectInArray(string[] strings, string text)
         {
             string[] tempStrings = new string[strings.Length + 1];
 
@@ -133,11 +128,17 @@ namespace HWPersonnelAccounting
             }
 
             strings = tempStrings;
+            strings[strings.Length - 1] = text;
             return strings;
         }
         static string[] RemoveObjectFromArray(string[] strings, int value)
         {
             string[] tempStrings = new string[strings.Length - 1];
+
+            for (int i = value; i < strings.Length; i++)
+            {
+                strings[i - 1] = strings[i];
+            }
 
             for (int i = 0; i < tempStrings.Length; i++)
             {

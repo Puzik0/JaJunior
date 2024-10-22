@@ -75,6 +75,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWKansasCityShuffle", "..\H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWPersonnelAccounting", "..\HWPersonnelAccounting\HWPersonnelAccounting.csproj", "{F3FC8780-04E0-4DD8-B317-983182032F14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWBraveNewWorld", "..\HWBraveNewWorld\HWBraveNewWorld.csproj", "{C84916FF-103D-459F-AF88-F32E3611AB49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -209,6 +211,10 @@ Global
 		{F3FC8780-04E0-4DD8-B317-983182032F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3FC8780-04E0-4DD8-B317-983182032F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3FC8780-04E0-4DD8-B317-983182032F14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C84916FF-103D-459F-AF88-F32E3611AB49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C84916FF-103D-459F-AF88-F32E3611AB49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C84916FF-103D-459F-AF88-F32E3611AB49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C84916FF-103D-459F-AF88-F32E3611AB49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -246,6 +252,7 @@ Global
 		{7262CEEF-87DC-471C-B5B5-387987778FB3} = {059C5616-F2E5-4CC7-A9DF-2C9700FD480C}
 		{F48AC411-ED4B-4769-99F8-6B42C32C5B91} = {059C5616-F2E5-4CC7-A9DF-2C9700FD480C}
 		{F3FC8780-04E0-4DD8-B317-983182032F14} = {059C5616-F2E5-4CC7-A9DF-2C9700FD480C}
+		{C84916FF-103D-459F-AF88-F32E3611AB49} = {059C5616-F2E5-4CC7-A9DF-2C9700FD480C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6176F3A3-A47A-4C1B-9DBF-846238A47A06}
