@@ -27,10 +27,9 @@ namespace HWReadInt
 
             if (canConvert == true)
             {
-                int.TryParse(value, out int converted);
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Введено число: {converted}");
+                Console.WriteLine($"Введено число: {result}");
                 Console.ForegroundColor = ConsoleColor.White;
             }
         }
