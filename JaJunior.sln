@@ -71,6 +71,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWReadInt", "..\HWMetods\HW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWUIElement", "..\HWUIElement\HWUIElement.csproj", "{7262CEEF-87DC-471C-B5B5-387987778FB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HWKansasCityShuffle", "..\HWKansasCityShuffle\HWKansasCityShuffle.csproj", "{F48AC411-ED4B-4769-99F8-6B42C32C5B91}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -197,6 +199,10 @@ Global
 		{7262CEEF-87DC-471C-B5B5-387987778FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7262CEEF-87DC-471C-B5B5-387987778FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7262CEEF-87DC-471C-B5B5-387987778FB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F48AC411-ED4B-4769-99F8-6B42C32C5B91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F48AC411-ED4B-4769-99F8-6B42C32C5B91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F48AC411-ED4B-4769-99F8-6B42C32C5B91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F48AC411-ED4B-4769-99F8-6B42C32C5B91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -232,6 +238,7 @@ Global
 		{059C5616-F2E5-4CC7-A9DF-2C9700FD480C} = {0D860998-1C1F-4E8E-9DCF-C6F22A698804}
 		{22987746-A5B0-4E86-84EE-370BEF32D25E} = {059C5616-F2E5-4CC7-A9DF-2C9700FD480C}
 		{7262CEEF-87DC-471C-B5B5-387987778FB3} = {059C5616-F2E5-4CC7-A9DF-2C9700FD480C}
+		{F48AC411-ED4B-4769-99F8-6B42C32C5B91} = {059C5616-F2E5-4CC7-A9DF-2C9700FD480C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6176F3A3-A47A-4C1B-9DBF-846238A47A06}
