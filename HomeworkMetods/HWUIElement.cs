@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Schema;
 
 namespace HWUIElement
 {
@@ -6,45 +7,51 @@ namespace HWUIElement
     {
         static void Main(string[] args)
         {
-            DrawBar(0, 4, 10, ConsoleColor.Green, "Здоровье");
-            DrawBar(1, 50, 10, ConsoleColor.Blue, "Мана");
+            DrawBar(0, 40, 10, ConsoleColor.Green, "Здоровье"); 
+            DrawBar(1, 39, 50, ConsoleColor.Blue, "Манa \n\n");
         }
 
-        static void DrawBar(int YPosition, int value, int maxValue, ConsoleColor color, string barName = "Bar", char specialSymbolPoints = ' ', char specialSymbolLostPoints = ' ')
+        static void DrawBar(int positionY, int valuePercent, double maxValue, ConsoleColor color, string barName = "Bar", char specialSymbolPoints = ' ', char specialSymbolLostPoints = ' ')
         {
-            char openBar = '[';
-            char closeBar = ']';
+            char barOpener = '[';
+            char barCloser = ']';
+
+            double charActivator = 40;
+            double maxPercent = 100;
+
+            double value = (maxValue / maxPercent) * valuePercent;
+
             ConsoleColor defaultColor = Console.BackgroundColor;
 
-            if (value == 0.4 * maxValue)
+            if (valuePercent == charActivator)
             {
                 specialSymbolPoints = '#';
                 specialSymbolLostPoints = '_';
             }
 
-            string bar = "";
+            FillPartBar(value, specialSymbolPoints, out string bar);
 
-            for (int i = 0; i < value; i++)
-            {
-                bar += specialSymbolPoints;
-            }
-
-            Console.SetCursorPosition(0, YPosition);
-            Console.Write(openBar);
+            Console.SetCursorPosition(0, positionY);
+            Console.Write(barOpener);
             Console.BackgroundColor = color;
             Console.Write(bar);
             Console.BackgroundColor = defaultColor;
 
+            FillPartBar(maxValue - value, specialSymbolLostPoints, out string barEmpty);
+
+            Console.Write(barEmpty);
+            Console.Write(barCloser);
+            Console.Write("-" + barName);
+        }
+
+        static void FillPartBar(double value, char specialSymbol, out string bar)
+        {
             bar = "";
 
-            for (int i = value; i < maxValue; i++)
+            for (int i = 0; i < value; i++)
             {
-                bar += specialSymbolLostPoints;
+                bar += specialSymbol;
             }
-
-            Console.Write(bar);
-            Console.Write(closeBar);
-            Console.Write("-" + barName);
         }
     }
 }
