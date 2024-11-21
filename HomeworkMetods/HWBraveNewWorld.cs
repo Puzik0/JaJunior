@@ -49,8 +49,6 @@ namespace HWBraveNewWorld
                 ConsoleKeyInfo pressedKey = Console.ReadKey();
                 MovePlayer(pressedKey, ref playerCoordinateX, ref playerCoordinateY, ref map, wall);
             }
-
-
         }
 
         static void DrawMap(char[,] chars)
