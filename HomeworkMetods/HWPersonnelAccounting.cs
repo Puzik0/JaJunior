@@ -85,10 +85,9 @@ namespace HWPersonnelAccounting
             WriteText("Данные успешно внесены", ConsoleColor.Green);
         }
 
-        static void RemoveAccount( ref string[] accountAddress,ref  string[] accountPosition)
+        static void RemoveAccount(ref string[] accountAddress, ref string[] accountPosition)
         {
             Console.Clear();
-
             WriteText("Укажите номер досье для удаления", ConsoleColor.DarkYellow);
 
             if (int.TryParse(Console.ReadLine(), out int indexForDeliting) == false || indexForDeliting <= 0 || indexForDeliting > accountAddress.Length)
@@ -140,25 +139,21 @@ namespace HWPersonnelAccounting
             Console.Clear();
             WriteText("Введите фамилию для поиска по базе");
             string text = Console.ReadLine();
-            bool familyNameFinded = false;
-
+            bool isFamilynameFinded = false;
+            int familynamePositionInArray = 0;
             for (int i = 0; i < strings.Length; i++)
             {
                 string[] substring = strings[i].Split(' ');
-                for (int j = 0; j < substring.Length; j++)
+
+                if (substring[familynamePositionInArray].ToLower() == text.ToLower())
                 {
-                    if (substring[j].ToLower() == text.ToLower())
-                    {
-                        Console.WriteLine($"{i + 1} - {strings[i]}");
-                        familyNameFinded = true;
-                    }
+                    Console.WriteLine($"{i + 1} - {strings[i]}");
+                    isFamilynameFinded = true;
                 }
             }
 
-            if (familyNameFinded ==false)
+            if (isFamilynameFinded == false)
                 WriteText($"Указанная фамилия - {text} не найдена", ConsoleColor.Red);
-
-
         }
 
         static void ShowCommands(string commandAddAccount, string commandShowAll, string commandRemoveAccount, string commandFamilySearch, string commandExit)
