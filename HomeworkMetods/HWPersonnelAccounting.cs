@@ -40,7 +40,7 @@ namespace HWPersonnelAccounting
                         continue;
 
                     case СommandFamilySearch:
-                        FindeFamilyname(Console.ReadLine(), personnelAccounting);
+                        FindeFamilyname(personnelAccounting);
                         continue;
 
                     case СommandExit:
@@ -132,10 +132,11 @@ namespace HWPersonnelAccounting
             strings = tempStrings;
             return strings;
         }
-        static void FindeFamilyname(string text, string[] strings)
+        static void FindeFamilyname(string[] strings)
         {
             Console.Clear();
             WriteText("Введите фамилию для поиска по базе");
+            string text = Console.ReadLine();
 
             for (int i = 0; i < strings.Length; i++)
             {
