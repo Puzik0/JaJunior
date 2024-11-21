@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace HWPersonnelAccounting
 {
@@ -11,70 +6,53 @@ namespace HWPersonnelAccounting
     {
         static void Main(string[] args)
         {
-            const string commandAddAccount = "1";
-            const string commandShowAll = "2";
-            const string commandRemoveAccount = "3";
-            const string commandFamilySearch = "4";
-            const string commandExit = "5";
-            const string commandHelp = "6";
+            const string СommandAddAccount = "1";
+            const string СommandShowAll = "2";
+            const string СommandRemoveAccount = "3";
+            const string СommandFamilySearch = "4";
+            const string СommandHelp = "6";
+            const string СommandExit = "5";
 
             bool isOpen = true;
 
             string[] personnelAccounting = { "Тест Валентин Петрович", "Скучный Никлой Кириллович", "Тыква Елена Павловна", "Тангалы Зураб Агургандбеков",
-                "Киркорыч Леонид Баскович", "Ряба Татьяна Епифановна", "Смольный Владимир Владимирович","Тест Тамара Тестовна"};
+                "Киркорыч Леонид Баскович", "Ряба Татьяна Еписьфановна", "Смольный Владимир Владимирович","Тест Тамара Тестовна"};
 
             string[] positionsAccounting = { "Бездельник", "Айтишник", "Повар", "Техник", "Ичар", "Бухгалтер", "Охранник", "Тестер" };
 
             while (isOpen)
             {
-                Console.WriteLine($"\n{commandHelp} - Помощь");
+                Console.WriteLine($"\n{СommandHelp} - Помощь");
                 WriteText("Введите необходимую команду");
 
                 switch (Console.ReadLine())
                 {
-                    case commandAddAccount:
-                        Console.Clear();
-                        WriteText("Для добавления досье введите ФИО разделяя пробелом");
-                        personnelAccounting = AddAccount(Console.ReadLine(), personnelAccounting);
-                        WriteText("Укажите должность...");
-                        positionsAccounting = AddAccount(Console.ReadLine(), positionsAccounting);
-                        WriteText("Данные внесены", ConsoleColor.Green);
+                    case СommandAddAccount:
+                        AddAccount(personnelAccounting, positionsAccounting, out personnelAccounting, out positionsAccounting);
                         continue;
 
-                    case commandShowAll:
-                        Console.Clear();
+                    case СommandShowAll:
                         ShowAllAccounts(personnelAccounting, positionsAccounting);
                         continue;
 
-                    case commandRemoveAccount:
-                        Console.Clear();
+                    case СommandRemoveAccount:
                         RemoveAccount(personnelAccounting, positionsAccounting, out personnelAccounting, out positionsAccounting);
                         continue;
 
-                    case commandFamilySearch:
-                        Console.Clear();
-                        WriteText("Введите фамилию для поиска по базе");
+                    case СommandFamilySearch:
                         FindeFamilyname(Console.ReadLine(), personnelAccounting);
                         continue;
 
-                    case commandExit:
+                    case СommandExit:
                         isOpen = false;
                         break;
 
-                    case commandHelp:
-                        Console.Clear();
-                        Console.WriteLine($"для управления программой используйте эти команды:" +
-                            $"\n{commandAddAccount} - Добавить досье" +
-                            $"\n{commandShowAll} - Показать все досье" +
-                            $"\n{commandRemoveAccount} - Удалить досье" +
-                            $"\n{commandFamilySearch} - Поиск досье по фамилии" +
-                            $"\n{commandExit} - Выход из программы");
+                    case СommandHelp:
+                        ShowCommands(СommandAddAccount, СommandShowAll, СommandRemoveAccount, СommandFamilySearch, СommandExit);
                         continue;
 
                     default:
-                        Console.Clear();
-                        WriteText($"ОШИБКА.... \nТакой Команды нет", ConsoleColor.Red);
-                        WriteText($"\n Попробуйте еще раз или введите:{commandHelp} - для вывода доступных команд", ConsoleColor.Green);
+                        ShowError(СommandHelp);
                         break;
                 }
             }
@@ -88,25 +66,31 @@ namespace HWPersonnelAccounting
         }
         static void ShowAllAccounts(string[] accountAddress, string[] accountPositions)
         {
+            Console.Clear();
+
             for (int i = 0; i < accountAddress.Length; i++)
             {
                 Console.WriteLine($"{i + 1} - {accountAddress[i]} - {accountPositions[i]}");
             }
         }
-        static string[] AddAccount(string text, string[] strings)
+        static void AddAccount(string[] accountAddress, string[] accountPosition, out string[] newAccountAddress, out string[] newAccountPosition)
         {
-            AddObjectInArray(strings, text);
+            Console.Clear();
+            WriteText("Для добавления досье введите ФИО разделяя пробелом.", ConsoleColor.DarkYellow);
+            newAccountPosition = AddObjectInArray(accountPosition, Console.ReadLine());
+            WriteText("Укажите должность.", ConsoleColor.DarkYellow);
+            newAccountAddress = AddObjectInArray(accountAddress, Console.ReadLine());
             WriteText("Данные успешно внесены", ConsoleColor.Green);
-            return strings;
         }
         static void RemoveAccount(string[] accountAddress, string[] accountPosition, out string[] changedAccountAddress, out string[] changedAccountPosition)
         {
-            WriteText("Укажите номер досье для удаления", ConsoleColor.DarkYellow);
-            int indexForDeliting = Convert.ToInt32(Console.ReadLine());
+            Console.Clear();
 
-            if (indexForDeliting == 0 || indexForDeliting > accountAddress.Length)
+            WriteText("Укажите номер досье для удаления", ConsoleColor.DarkYellow);
+
+            if (int.TryParse(Console.ReadLine(), out int indexForDeliting) == false || indexForDeliting == 0 || indexForDeliting > accountAddress.Length)
             {
-                WriteText("Введено некорректное значение", ConsoleColor.Red);
+                WriteText("Ошибка ввода, введено не число, 0 или указаное число превышает кол-во строк", ConsoleColor.Red);
                 changedAccountAddress = accountAddress;
                 changedAccountPosition = accountPosition;
             }
@@ -127,8 +111,8 @@ namespace HWPersonnelAccounting
                 tempStrings[i] = strings[i];
             }
 
+            tempStrings[strings.Length] = text;
             strings = tempStrings;
-            strings[strings.Length - 1] = text;
             return strings;
         }
         static string[] RemoveObjectFromArray(string[] strings, int value)
@@ -146,11 +130,13 @@ namespace HWPersonnelAccounting
             }
 
             strings = tempStrings;
-
             return strings;
         }
         static void FindeFamilyname(string text, string[] strings)
         {
+            Console.Clear();
+            WriteText("Введите фамилию для поиска по базе");
+
             for (int i = 0; i < strings.Length; i++)
             {
                 string[] substring = strings[i].Split(' ');
@@ -162,6 +148,22 @@ namespace HWPersonnelAccounting
                     }
                 }
             }
+        }
+        static void ShowCommands(string commandAddAccount, string commandShowAll, string commandRemoveAccount, string commandFamilySearch, string commandExit)
+        {
+            Console.Clear();
+            Console.WriteLine($"для управления программой используйте эти команды:" +
+                $"\n{commandAddAccount} - Добавить досье" +
+                $"\n{commandShowAll} - Показать все досье" +
+                $"\n{commandRemoveAccount} - Удалить досье" +
+                $"\n{commandFamilySearch} - Поиск досье по фамилии" +
+                $"\n{commandExit} - Выход из программы");
+        }
+        static void ShowError(string СommandHelp)
+        {
+            Console.Clear();
+            WriteText($"ОШИБКА.... \nТакой Команды нет", ConsoleColor.Red);
+            WriteText($"\n Попробуйте еще раз или введите:{СommandHelp} - для вывода доступных команд", ConsoleColor.Green);
         }
     }
 }
