@@ -57,6 +57,7 @@ namespace HWPersonnelAccounting
                 }
             }
         }
+
         static void WriteText(string text, ConsoleColor color = ConsoleColor.White)
         {
             ConsoleColor defoult = Console.ForegroundColor;
@@ -141,6 +142,7 @@ namespace HWPersonnelAccounting
             string text = Console.ReadLine();
             bool isFamilynameFinded = false;
             int familynamePositionInArray = 0;
+
             for (int i = 0; i < strings.Length; i++)
             {
                 string[] substring = strings[i].Split(' ');
