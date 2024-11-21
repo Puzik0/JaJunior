@@ -80,9 +80,9 @@ namespace HWPersonnelAccounting
         {
             Console.Clear();
             WriteText("Для добавления досье введите ФИО разделяя пробелом.", ConsoleColor.DarkYellow);
-            AddCardInArray(ref accountAddress, Console.ReadLine());
+            accountAddress = AddCardInArray(accountAddress, Console.ReadLine());
             WriteText("Укажите должность.", ConsoleColor.DarkYellow);
-            AddCardInArray(ref accountPosition, Console.ReadLine());
+            accountPosition = AddCardInArray(accountPosition, Console.ReadLine());
             WriteText("Данные успешно внесены", ConsoleColor.Green);
         }
 
@@ -97,13 +97,13 @@ namespace HWPersonnelAccounting
             }
             else
             {
-                RemoveCardFromArray(ref accountAddress, indexForDeliting);
-                RemoveCardFromArray(ref accountPosition, indexForDeliting);
+                accountAddress = RemoveCardFromArray(accountAddress, indexForDeliting);
+                accountPosition = RemoveCardFromArray(accountPosition, indexForDeliting);
                 WriteText("Запись успешно удалена", ConsoleColor.Green);
             }
         }
 
-        static string[] AddCardInArray(ref string[] strings, string text)
+        static string[] AddCardInArray(string[] strings, string text)
         {
             string[] tempStrings = new string[strings.Length + 1];
 
@@ -117,7 +117,7 @@ namespace HWPersonnelAccounting
             return strings;
         }
 
-        static string[] RemoveCardFromArray(ref string[] strings, int value)
+        static string[] RemoveCardFromArray(string[] strings, int value)
         {
             string[] tempStrings = new string[strings.Length - 1];
 
