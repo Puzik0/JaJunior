@@ -28,7 +28,7 @@ namespace HWPersonnelAccounting
                 switch (Console.ReadLine())
                 {
                     case СommandAddAccount:
-                        AddAccount(personnelAccounting, positionsAccounting, out personnelAccounting, out positionsAccounting);
+                        AddAccount(ref personnelAccounting, ref positionsAccounting);
                         continue;
 
                     case СommandShowAll:
@@ -36,7 +36,7 @@ namespace HWPersonnelAccounting
                         continue;
 
                     case СommandRemoveAccount:
-                        RemoveAccount(personnelAccounting, positionsAccounting, out personnelAccounting, out positionsAccounting);
+                        RemoveAccount(ref personnelAccounting, ref positionsAccounting);
                         continue;
 
                     case СommandFamilySearch:
@@ -64,6 +64,7 @@ namespace HWPersonnelAccounting
             Console.WriteLine(text);
             Console.ForegroundColor = defoult;
         }
+
         static void ShowAllAccounts(string[] accountAddress, string[] accountPositions)
         {
             Console.Clear();
@@ -73,36 +74,36 @@ namespace HWPersonnelAccounting
                 Console.WriteLine($"{i + 1} - {accountAddress[i]} - {accountPositions[i]}");
             }
         }
-        static void AddAccount(string[] accountAddress, string[] accountPosition, out string[] newAccountAddress, out string[] newAccountPosition)
+
+        static void AddAccount(ref string[] accountAddress, ref string[] accountPosition)
         {
             Console.Clear();
             WriteText("Для добавления досье введите ФИО разделяя пробелом.", ConsoleColor.DarkYellow);
-            newAccountPosition = AddObjectInArray(accountPosition, Console.ReadLine());
+            AddCardInArray(ref accountAddress, Console.ReadLine());
             WriteText("Укажите должность.", ConsoleColor.DarkYellow);
-            newAccountAddress = AddObjectInArray(accountAddress, Console.ReadLine());
+            AddCardInArray(ref accountPosition, Console.ReadLine());
             WriteText("Данные успешно внесены", ConsoleColor.Green);
         }
-        static void RemoveAccount(string[] accountAddress, string[] accountPosition, out string[] changedAccountAddress, out string[] changedAccountPosition)
+
+        static void RemoveAccount( ref string[] accountAddress,ref  string[] accountPosition)
         {
             Console.Clear();
 
             WriteText("Укажите номер досье для удаления", ConsoleColor.DarkYellow);
 
-            if (int.TryParse(Console.ReadLine(), out int indexForDeliting) == false || indexForDeliting == 0 || indexForDeliting > accountAddress.Length)
+            if (int.TryParse(Console.ReadLine(), out int indexForDeliting) == false || indexForDeliting <= 0 || indexForDeliting > accountAddress.Length)
             {
-                WriteText("Ошибка ввода, введено не число, 0 или указаное число превышает кол-во строк", ConsoleColor.Red);
-                changedAccountAddress = accountAddress;
-                changedAccountPosition = accountPosition;
+                WriteText("Ошибка ввода, введено не число, отрицательное число, 0 или указанное число превышает кол-во строк", ConsoleColor.Red);
             }
-
             else
             {
-                changedAccountAddress = RemoveObjectFromArray(accountAddress, indexForDeliting);
-                changedAccountPosition = RemoveObjectFromArray(accountPosition, indexForDeliting);
+                RemoveCardFromArray(ref accountAddress, indexForDeliting);
+                RemoveCardFromArray(ref accountPosition, indexForDeliting);
                 WriteText("Запись успешно удалена", ConsoleColor.Green);
             }
         }
-        static string[] AddObjectInArray(string[] strings, string text)
+
+        static string[] AddCardInArray(ref string[] strings, string text)
         {
             string[] tempStrings = new string[strings.Length + 1];
 
@@ -115,7 +116,8 @@ namespace HWPersonnelAccounting
             strings = tempStrings;
             return strings;
         }
-        static string[] RemoveObjectFromArray(string[] strings, int value)
+
+        static string[] RemoveCardFromArray(ref string[] strings, int value)
         {
             string[] tempStrings = new string[strings.Length - 1];
 
@@ -132,11 +134,13 @@ namespace HWPersonnelAccounting
             strings = tempStrings;
             return strings;
         }
+
         static void FindeFamilyname(string[] strings)
         {
             Console.Clear();
             WriteText("Введите фамилию для поиска по базе");
             string text = Console.ReadLine();
+            bool familyNameFinded = false;
 
             for (int i = 0; i < strings.Length; i++)
             {
@@ -146,10 +150,17 @@ namespace HWPersonnelAccounting
                     if (substring[j].ToLower() == text.ToLower())
                     {
                         Console.WriteLine($"{i + 1} - {strings[i]}");
+                        familyNameFinded = true;
                     }
                 }
             }
+
+            if (familyNameFinded ==false)
+                WriteText($"Указанная фамилия - {text} не найдена", ConsoleColor.Red);
+
+
         }
+
         static void ShowCommands(string commandAddAccount, string commandShowAll, string commandRemoveAccount, string commandFamilySearch, string commandExit)
         {
             Console.Clear();
@@ -160,6 +171,7 @@ namespace HWPersonnelAccounting
                 $"\n{commandFamilySearch} - Поиск досье по фамилии" +
                 $"\n{commandExit} - Выход из программы");
         }
+
         static void ShowError(string СommandHelp)
         {
             Console.Clear();
