@@ -56,9 +56,12 @@ namespace HWBraveNewWorld
                 MovePlayer(pressedKey, ref playerCoordinateX, ref playerCoordinateY, ref map, wall);
                 TakeTreasures(ref map, road, money, treasure, ref playerCoordinateX, ref playerCoordinateY, ref coinsInWallet, ref treasureInWallet);
             }
+<<<<<<< HEAD
 
             Console.Clear();
             Console.WriteLine($"Большое спасибо за игру! \nВы победили! \nМонет собрано:{coinsInWallet} \nДрагоценностей собрано:{treasureInWallet}");
+=======
+>>>>>>> d1e0530b719c3c0aaa47c451c21e7388f14509a6
         }
 
         static void DrawMap(char[,] chars, char coins, char treasure)
