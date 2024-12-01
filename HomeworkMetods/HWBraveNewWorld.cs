@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace HWBraveNewWorld
 {
@@ -9,7 +10,7 @@ namespace HWBraveNewWorld
             char[,] map =
             {
                 {'#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#' },
-                {'#','.','.','.','.','.','.','.','.','.','.','.','.','.','.','.','*','#','*','#' },
+                {'#',' ','.','.','.','.','.','.','.','.','.','.','.','.','.','.','*','#','*','#' },
                 {'#','#','#','#','#','#','#','#','.','#','#','#','#','#','#','#','#','#','.','#' },
                 {'#','.','.','.','.','.','*','#','.','.','#','.','.','.','.','.','.','#','.','#' },
                 {'#','.','#','#','#','#','#','#','.','.','#','.','#','.','.','.','.','#','.','#' },
@@ -33,36 +34,51 @@ namespace HWBraveNewWorld
             Console.CursorVisible = false;
 
             char player = '@';
-            char tresur = '*';
+            char treasure = '*';
             char money = '.';
             char wall = '#';
+            char road = ' ';
 
+            int coinsInWallet = 0;
+            int treasureInWallet = 0;
             int playerCoordinateX = 1;
             int playerCoordinateY = 1;
+            int coinsInWalletForWin = 196;
+            int treasureInWalletForWin = 9;
 
-            while (true)
+            while (coinsInWallet != coinsInWalletForWin || treasureInWallet != treasureInWalletForWin)
             {
                 Console.Clear();
-                DrawMap(map);
+                DrawMap(map, money, treasure);
+                DrawWallet(coinsInWallet, treasureInWallet);
                 DrawPacman(player, ref playerCoordinateX, ref playerCoordinateY);
-                Console.SetCursorPosition(32, 0);
                 ConsoleKeyInfo pressedKey = Console.ReadKey();
                 MovePlayer(pressedKey, ref playerCoordinateX, ref playerCoordinateY, ref map, wall);
+                TakeTreasures(ref map, road, money, treasure, ref playerCoordinateX, ref playerCoordinateY, ref coinsInWallet, ref treasureInWallet);
             }
 
-
+            Console.Clear();
+            Console.WriteLine($"Большое спасибо за игру! \nВы победили! \nМонет собрано:{coinsInWallet} \nДрагоценностей собрано:{treasureInWallet}");
         }
 
-        static void DrawMap(char[,] chars)
+        static void DrawMap(char[,] chars, char coins, char treasure)
         {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-
             for (int i = 0; i < chars.GetLength(0); i++)
             {
                 for (int j = 0; j < chars.GetLength(1); j++)
                 {
-                    Console.Write(chars[i, j]);
+                    if (chars[i, j] == coins || chars[i, j] == treasure)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.Write(chars[i, j]);
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.Write(chars[i, j]);
+                    }
                 }
+
                 Console.WriteLine();
             }
         }
@@ -73,7 +89,7 @@ namespace HWBraveNewWorld
             int nexPositionX = x + direction[0];
             int nexPositionY = y + direction[1];
 
-            if (map[nexPositionX, nexPositionY] != wall)
+            if (map[nexPositionY, nexPositionX] != wall)
             {
                 x = nexPositionX;
                 y = nexPositionY;
@@ -96,11 +112,32 @@ namespace HWBraveNewWorld
             return direction;
         }
 
-        static void DrawPacman(char player, ref int x, ref int y)
+        static void DrawPacman(char player, ref int xPosition, ref int yPosition)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.SetCursorPosition(x, y);
+            Console.SetCursorPosition(xPosition, yPosition);
             Console.Write(player);
+        }
+
+        static void TakeTreasures(ref char[,] map, char road, char coin, char treasure, ref int xPosition, ref int yPosition, ref int coinsCollected, ref int treasureCollected)
+        {
+            if (map[yPosition, xPosition] == coin)
+            {
+                map[yPosition, xPosition] = road;
+                coinsCollected++;
+            }
+            if (map[yPosition, xPosition] == treasure)
+            {
+                map[yPosition, xPosition] = road;
+                treasureCollected++;
+            }
+        }
+
+        static void DrawWallet(int coinsInWallet, int treasureInWallet)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(2, 25);
+            Console.WriteLine($"Собрано монет: {coinsInWallet}, Собрано драгоценностей: {treasureInWallet}");
         }
     }
 }
