@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Security.Policy;
 
 namespace HWBraveNewWorld
 {
@@ -50,10 +51,10 @@ namespace HWBraveNewWorld
                 Console.Clear();
                 DrawMap(map, money, treasure);
                 DrawWallet(coinsInWallet, treasureInWallet);
-                DrawPacman(player, ref playerCoordinateX, ref playerCoordinateY);
+                DrawPacman(player,  playerCoordinateX,  playerCoordinateY);
                 ConsoleKeyInfo pressedKey = Console.ReadKey();
                 MovePlayer(pressedKey, ref playerCoordinateX, ref playerCoordinateY, ref map, wall);
-                TakeTreasures(ref map, road, money, treasure, ref playerCoordinateX, ref playerCoordinateY, ref coinsInWallet, ref treasureInWallet);
+                TakeTreasures(ref map, road, money, treasure, playerCoordinateX, playerCoordinateY, ref coinsInWallet, ref treasureInWallet);
             }
 
             Console.Clear();
@@ -111,25 +112,27 @@ namespace HWBraveNewWorld
             return direction;
         }
 
-        static void DrawPacman(char player, ref int xPosition, ref int yPosition)
+        static void DrawPacman(char player,  int xPosition,  int yPosition)
         {
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.SetCursorPosition(xPosition, yPosition);
             Console.Write(player);
         }
 
-        static void TakeTreasures(ref char[,] map, char road, char coin, char treasure, ref int xPosition, ref int yPosition, ref int coinsCollected, ref int treasureCollected)
+        static void TakeTreasures(ref char[,] map, char road, char coin, char treasure, int xPosition, int yPosition, ref int coinsCollected, ref int treasureCollected)
         {
-            if (map[yPosition, xPosition] == coin)
+            char myPosition = map[yPosition, xPosition];
+
+            if  (myPosition == coin)
             {
-                map[yPosition, xPosition] = road;
                 coinsCollected++;
             }
-            if (map[yPosition, xPosition] == treasure)
+            else if (myPosition == treasure)
             {
-                map[yPosition, xPosition] = road;
                 treasureCollected++;
             }
+
+            map[yPosition, xPosition] = road;
         }
 
         static void DrawWallet(int coinsInWallet, int treasureInWallet)
